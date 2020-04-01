@@ -1,0 +1,85 @@
+<div>
+<h2>HTTP Archive Viewer @VERSION@</h2>
+<i>作者：Jan Odvarko，Odvarko@gmail.com</i><br>
+<i>翻译：KaranocaVe，karanocave@qq.com</i><br>
+<i>提示：部分内容未翻译，因为对于专业人士来说，翻译了反而会降低效率.</i>
+<br/><br/>
+<table style="width:600px;">
+
+<tr><td>
+<p>这个在线工具的目的是可视化被http抓包工具产生的
+<a href="@HAR_SPEC_URL@">
+    HTTP Archive (HAR)</a>
+文. 这些文件包含HTTP日志
+客户端/服务器会话，可用于对页面加载性能进行分析.</p>
+
+<p>此工具的用户界面由以下选项卡组成：</p>
+<ul>
+<li><b>Home</b> - 将日志文件的内容粘贴到此选项卡的文本框中.</li>
+<li><b>Preview</b> - 如果要查看可视化的HTTP流量，请切换到此选项卡.</li>
+<li><b>HAR</b> - 使用此选项卡可以将输入JSON数据的结构视为可扩展树.</li>
+<li><b>Schema</b> - 在此选项卡中浏览输入日志的格式.</li>
+</ul>
+</td></tr>
+
+<tr><td>
+<h3>Links</h3>
+<p>主页 (捐款): <a href="http://www.softwareishard.com/blog/har-viewer/">
+    http://www.softwareishard.com/blog/har-viewer/</a></p>
+<p>报告开发者: <a href="http://groups.google.com/group/http-archive-specification">
+    http://groups.google.com/group/http-archive-specification</a></p>
+<p>报告问题: <a href="http://code.google.com/p/harviewer/issues/list">
+    http://code.google.com/p/harviewer/issues/list</a></p>
+<p>HAR Viewer 定制: <a href="http://code.google.com/p/harviewer/wiki/Customization">
+    http://code.google.com/p/harviewer/wiki/Customization</a></p>
+</td></tr>
+
+<tr><td>
+<h3>使用Firebug创建HARs</h3>
+可以用来记录通过HTTP协议传输的数据的工具之一
+是 <a href="http://getfirebug.com/">Firebug</a>. 为此，您还必须安装已调用扩展名的Firebug
+ <a href="http://www.softwareishard.com/blog/netexport/">NetExport</a>.
+</td></tr>
+
+<tr><td>
+<h3>HTTP Archive 规范</h3>
+<p>使用JSON模式描述了输入HTTP存档文件（.har）所需的结构。您可以在本页的“架构”选项卡中浏览当前架构定义。</p>
+</td></tr>
+
+<tr><td>
+<h3>请求计时字段</h3>
+<p>HTTP日志的一部分也是关于网络请求执行的计时信息。
+以下是对各个请求/响应阶段的描述：</p>
+<ul>
+<li><i>Blocking</i> - 排队等待网络连接所用的时间.</li>
+<li><i>DNS Lookup</i> - DNS解析时间。解析主机名所需的时间.</li>
+<li><i>Connecting</i> - 创建TCP连接所需的时间.</li>
+<li><i>Sending</i> - 向服务器发送HTTP请求所需的时间.</li>
+<li><i>Waiting</i> - 等待服务器的响应.</li>
+<li><i>Receiving</i> - 从服务器（或缓存）读取整个响应所需的时间.</li>
+</ul>
+</td></tr>
+
+<tr><td>
+<h3>在线日志文件</h3>
+<p>HAR查看器还支持JSONP，因此可以加载日志文件
+来自不同的领域。这允许链接在线日志并预览它们
+在查看器中自动执行。 查看在线
+<a href="?inputUrl=http://www.janodvarko.cz/har/viewer/examples/inline-scripts-block.harp">例子</a>.
+</p>
+
+<p><i>1. *.har文件的内容必须包含在回调函数中:</i></p>
+<code>onInputData({ "log": { ... } })</code>
+
+<p><i>2. 显示*.har文件的链接（使用此查看器）必须指定
+文件输入 <b>inputUrl</b>:</i></p>
+<code>http://www.softwareishard.com/har/viewer/?inputUrl=http://www.example.com/netData.har</code>
+
+<p><i>3.回调函数的自定义名称可以在一个 <b>callback<b>参数中指定
+    （默认情况下为 <b>onInputData</b> ）：</i></p>
+<code>http://www.softwareishard.com/har/viewer/?inputUrl=http://www.example.com/netData.har&amp;callback=onInputData</code>
+<br/><br/>
+</td></tr>
+
+</table>
+</div>
